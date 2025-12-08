@@ -4,7 +4,7 @@ import './Homepage.css'
 export function HomePage(){
     return(
         <>
-            <title>Ecommerce Project</title>
+            <title>React Ecommerce Project</title>
 
             <Header />
 
