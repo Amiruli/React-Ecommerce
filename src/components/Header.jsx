@@ -1,12 +1,12 @@
 import { Link } from 'react-router'
 import "./header.css";
 
-export function Header({ cart }) {
+export function Header({ cart = [] }) {
 
   let totalQuantity = 0;
-  for (const item of cart) {
-    totalQuantity += item.quantity;
-  }
+  cart.forEach((cartItem) => { 
+    totalQuantity += cartItem.quantity;
+  })
 
   return (
     <div className="header">
