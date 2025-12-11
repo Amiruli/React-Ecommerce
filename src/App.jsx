@@ -12,7 +12,7 @@ function App() {
   const [cart, setCart] = useState([]);
 
   useEffect(() => { 
-    axios.get("http://localhost:3000/api/cart-items").then((response) => {
+    axios.get("/api/cart-items").then((response) => {
       setCart(response.data);
       console.log(response.data);
     });
