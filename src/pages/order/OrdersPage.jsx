@@ -1,9 +1,9 @@
 import axios from "axios";
 import dayjs from "dayjs";
 import { useEffect, useState, Fragment } from "react";
-import { Header } from "../components/Header";
+import { Header } from "../../components/Header";
+import { formatMoney } from "../../utils/money";
 import "./OrderPage.css";
-import { formatMoney } from "../utils/money";
 
 export function OrdersPage({ cart = [] }) {
   const [orders, setOrders] = useState([]);
@@ -52,12 +52,12 @@ export function OrdersPage({ cart = [] }) {
                     return(
                     <Fragment key={orderProduct.id}>
                       <div className="product-image-container">
-                        <img src="images/products/athletic-cotton-socks-6-pairs.jpg" />
+                        <img src={ orderProduct.product.image } />
                       </div>
 
                       <div className="product-details">
                         <div className="product-name">
-                          { orderProduct.name }
+                          { orderProduct.product.name }
                         </div>
                         <div className="product-delivery-date">
                           Arriving on: { dayjs(orderProduct.estimatedDeliveryTimeMs).format('MMMM D, YYYY') }
@@ -66,7 +66,7 @@ export function OrdersPage({ cart = [] }) {
                         <button className="buy-again-button button-primary">
                           <img
                             className="buy-again-icon"
-                            src="images/icons/buy-again.png"
+                            src={ orderProduct.image }
                           />
                           <span className="buy-again-message">Add to Cart</span>
                         </button>
@@ -82,10 +82,6 @@ export function OrdersPage({ cart = [] }) {
                     </Fragment>
                     )
                   })}
-
-                  
-
-                  
                 </div>
               </div>
             );
